@@ -1,0 +1,19 @@
+def rotate(arr, k)
+  n = arr.length
+  k %= n 
+  reverse(arr,0,n - 1)
+  reverse(arr,0,k - 1)
+  reverse(arr,k,n - 1)
+  arr
+end
+def reverse(arr, start, finish)
+  while start < finish
+    arr[start], arr[finish] = arr[finish], arr[start]
+    start += 1
+    finish -= 1
+  end
+end
+arr = [1,2,3,4,5]
+k = 2
+rotated = rotate(arr, k)
+puts rotated.inspect
